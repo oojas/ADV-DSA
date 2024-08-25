@@ -2,10 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Construction {
-    public int[][] getConn(Scanner sc, int n) {
+public class Graph {
+ int[][] conn;
+ List<List<Integer>> graph;
+     public int[][] getConn(Scanner sc, int n) {
         System.out.println("Enter your connections");
-        int [][] conn=new int[n][2];
+        conn=new int[n][2];
         for(int i=0 ; i<n ; i++)
         {
             conn[i][0]=sc.nextInt();
@@ -18,10 +20,9 @@ public class Construction {
         }
         return conn;
     }
-
-    public List<List<Integer>> constructGraph(int n,int [][]conn) {
+        public List<List<Integer>> constructGraph(int n,int [][]conn) {
         System.out.println("Making the graph");
-        List<List<Integer>> graph=new ArrayList<>();
+        graph=new ArrayList<>();
         for(int i=0 ; i<n ; i++)
         {
             graph.add(new ArrayList<>());
@@ -33,14 +34,29 @@ public class Construction {
             graph.get(u).add(v);
             graph.get(v).add(u);
         }
-        print(graph);
         return graph;
     }
-    private void print(List<List<Integer>> graph){
+    public void print(List<List<Integer>> graph){
         System.out.println("Graph looks like");
         for(int i=0 ; i<graph.size() ; i++)
         {
             System.out.print(graph.get(i)+" ");
         }
     }
+    public int getNodeLength(){
+        return conn.length;
+    }
+    public int getNodes(Scanner sc){
+        return sc.nextInt();
+       }
+       public int getConnectionsLength(Scanner sc){
+           return sc.nextInt();
+       }
+       public List<List<Integer>> getGraph(Scanner sc){
+           Graph con=new Graph();
+           int n=getNodes(sc);
+           int m=getConnectionsLength(sc);
+           return con.constructGraph(n, con.getConn(sc, m));
+       }
+
 }

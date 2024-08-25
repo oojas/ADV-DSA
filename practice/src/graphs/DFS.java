@@ -2,17 +2,13 @@ import java.util.List;
 import java.util.Scanner;
 public class DFS {
     public static void main(String[] args) {
-        Construction con=new Construction();
-        GraphInput input=new GraphInput();
         Scanner sc=new Scanner(System.in);
-        int n=input.getNodes(sc);
-        int m=input.getConnectionsLength(sc);
-        List<List<Integer>> graph=con.constructGraph(n, con.getConn(sc, m));
+        Graph graph=new Graph();
         DFS dfs=new DFS();
         System.out.println("Enter the source node");
         int src=sc.nextInt();
-        boolean []visited=new boolean[n];
-        dfs.printDFS(graph,visited,src);
+        boolean []visited=new boolean[graph.getNodes(sc)];
+        dfs.printDFS(graph.getGraph(sc),visited,src);
     }
     public void printDFS(List<List<Integer>> graph,boolean []visited,int src){
             List<Integer> nodes=graph.get(src);

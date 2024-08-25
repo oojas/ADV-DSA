@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class BFS {
     private static void initialize() {
-        Construction cons=new Construction();
+        Graph cons=new Graph();
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the number of nodes : ");
         int nodes=sc.nextInt();
