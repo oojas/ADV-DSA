@@ -23,7 +23,8 @@ public class rottenOranges {
                 }
             }
         }
-        checkForRottenOranges(row, col, oranges, pairs);
+       int ans= checkForRottenOranges(row, col, oranges, pairs);
+       System.out.println(ans);
     }
 
     private static int checkForRottenOranges(int row, int col, int[][] oranges, Queue<Pair> pairs) {
