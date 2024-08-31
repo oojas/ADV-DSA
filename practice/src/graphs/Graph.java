@@ -58,5 +58,19 @@ public class Graph {
            int m=getConnectionsLength(sc);
            return con.constructGraph(n, con.getConn(sc, m));
        }
+       public int[][] getConnections(Scanner sc){
+        int n=getConnectionsLength(sc);
+        int [][]connections =new int[n][3];
+        for(int i=0 ; i<n ; i++)
+        {
+            int node=sc.nextInt();
+            int connec=sc.nextInt();
+            int weight=sc.nextInt();
+            connections[i][0]=node;
+            connections[i][1]=connec;
+            connections[i][2]=weight;
+        }
+        return connections;
+       }
 
 }
